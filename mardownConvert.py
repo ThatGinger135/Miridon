@@ -2,10 +2,10 @@ import markdown
 import os
 
 # Set the path to the root directory
-root_dir = "/path/to/root/directory"
+root_dir = "C:/Users/mikea/Documents/obsidianNotes/Miridon"
 
 # Set the path to the output directory
-output_dir = "/path/to/output/directory"
+output_dir = "mdFiles"
 
 # Loop through all files and directories in the root directory
 for dirpath, dirnames, filenames in os.walk(root_dir):
