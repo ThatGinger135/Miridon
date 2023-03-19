@@ -50,8 +50,8 @@ footer {
     background-color: #0f5c38;
     color: #ffffff;
     padding: 20px;
-    text-align: center;
-    position: absolute;
+    text-align: left;
+    position: flex;
     width: 100%;
     bottom: 0;
 
