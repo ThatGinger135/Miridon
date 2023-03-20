@@ -52,7 +52,7 @@ footer {
     padding: 20px;
     text-align: left;
     position: flex;
-    width: 100%;
+    width: auto;
     bottom: 0;
 
 }
