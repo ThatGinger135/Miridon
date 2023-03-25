@@ -71,12 +71,7 @@ footer {
 }
 
 .map {
-    width: 250px;
+    width: 50px;
     height: auto;
 
-}
-
-.map img {
-    max-width: 100%;
-    max-height: 100%;
 }
