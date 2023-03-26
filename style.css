@@ -67,7 +67,6 @@ footer {
 }
 
 .sidebar {
-    flex-basis: 25%;
     background-color: #167e39;
     padding: 25px;
     min-height: 100%;
