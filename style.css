@@ -78,12 +78,12 @@ footer {
     min-width: 15%;
 }
 
-.map {
+.picture {
     max-width: 100%;
     max-height: auto;
 }
 
-.map img {
+.picture img {
     max-width: 100%;
     max-height: 100%;
 }
