@@ -17,4 +17,4 @@
 
 ### Art
 
-![Finch](../art/finch.png)
+![Halley](../art/halley.png)
