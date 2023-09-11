@@ -79,10 +79,10 @@ def clean_docs_and_move_resources():
 
 def fill_places():
     page_type = "Location"
-    for i in scan_tree(path="places-info-html", item_wanted="files"):
+    for i in scan_tree(path="creation/places-info-html", item_wanted="files"):
         p = Path(i)
         working_file = (
-            f'places/{"".join(bit.capitalize() for bit in p.stem.split("_"))}.html'
+            f'creation/places/{"".join(bit.capitalize() for bit in p.stem.split("_"))}.html'
         )
         fill_page(
             working_file=working_file,
@@ -93,10 +93,10 @@ def fill_places():
 
 def fill_people():
     page_type = "Player Character"
-    for i in scan_tree(path="people-info-html", item_wanted="files"):
+    for i in scan_tree(path="creation/people-info-html", item_wanted="files"):
         p = Path(i)
         working_file = (
-            f'people/{"".join(bit.capitalize() for bit in p.stem.split("_"))}.html'
+            f'creation/people/{"".join(bit.capitalize() for bit in p.stem.split("_"))}.html'
         )
         fill_page(
             working_file=working_file,
