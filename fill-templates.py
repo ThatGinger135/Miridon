@@ -57,30 +57,52 @@ def get_main_contents(working_file, html_content):
         to_fill = temp.read()
     soup = BeautifulSoup(to_fill, "html.parser")
     soup.find(id="main_section").insert(1, filler_soup)
-    with open("output.html", "w", encoding="utf-8") as out:
+    with open(working_file, "w", encoding="utf-8") as out:
         out.write(str(soup.prettify()))
 
 
-def fill_page(working_file, html_content):
-    working_file = "script-drafting.html"
-    html_content = "test.html"
-    file_name = " ".join(Path(html_content).stem.split("_")).capitalize()
-    heading = f"Location: {file_name}"
+def fill_page(working_file, content, page_type):
+    file_name = " ".join(Path(content).stem.split("_")).capitalize()
+    heading = f"{page_type}: {file_name}"
     setup_working_file(working_file=working_file)
     set_title(title=file_name, working_file=working_file)
     set_heading(heading=heading, working_file=working_file)
-    get_main_contents(working_file=working_file, html_content=html_content)
+    get_main_contents(working_file=working_file, html_content=content)
 
 
 def clean_docs_and_move_resources():
-    if os.path.exists("docs/maps"):
-        shutil.rmtree("docs/maps")
-    shutil.copytree("maps", "docs/maps")
+    for i in ["places", "people", "maps", "art"]:
+        if os.path.exists(f"docs/{i}"):
+            shutil.rmtree(f"docs/{i}")
+        shutil.copytree(i, f"docs/{i}")
 
 
-def make_places():
-    for i in scan_tree(path="places-html", item_wanted="files"):
-        pass
+def fill_places():
+    page_type = "Location"
+    for i in scan_tree(path="places-info-html", item_wanted="files"):
+        p = Path(i)
+        working_file = (
+            f'places/{"".join(bit.capitalize() for bit in p.stem.split("_"))}.html'
+        )
+        fill_page(
+            working_file=working_file,
+            content=p,
+            page_type=page_type,
+        )
 
 
-clean_docs_and_move_resources()
+def fill_people():
+    page_type = "Player Character"
+    for i in scan_tree(path="people-info-html", item_wanted="files"):
+        p = Path(i)
+        working_file = (
+            f'people/{"".join(bit.capitalize() for bit in p.stem.split("_"))}.html'
+        )
+        fill_page(
+            working_file=working_file,
+            content=p,
+            page_type=page_type,
+        )
+
+
+fill_places()
