@@ -81,9 +81,7 @@ def fill_places():
     page_type = "Location"
     for i in scan_tree(path="creation/places-info-html", item_wanted="files"):
         p = Path(i)
-        working_file = (
-            f'creation/places/{"".join(bit.capitalize() for bit in p.stem.split("_"))}.html'
-        )
+        working_file = f'creation/places/{"".join(bit.capitalize() for bit in p.stem.split("_"))}.html'
         fill_page(
             working_file=working_file,
             content=p,
@@ -95,9 +93,7 @@ def fill_people():
     page_type = "Player Character"
     for i in scan_tree(path="creation/people-info-html", item_wanted="files"):
         p = Path(i)
-        working_file = (
-            f'creation/people/{"".join(bit.capitalize() for bit in p.stem.split("_"))}.html'
-        )
+        working_file = f'creation/people/{"".join(bit.capitalize() for bit in p.stem.split("_"))}.html'
         fill_page(
             working_file=working_file,
             content=p,
